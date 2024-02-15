@@ -22,11 +22,13 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Pelicula {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_pelicula")
+    @EqualsAndHashCode.Include
     private long idPelicula;
     private String titulo;
     private String descripcion;
@@ -56,7 +58,7 @@ public class Pelicula {
     @Column(name = "caracteristicas_especiales")
     private String caracteristicasEspeciales;
 
-    @ManyToMany
+    @ManyToMany()
     @JoinTable(
             name = "pelicula_categoria",
             joinColumns = @JoinColumn(name = "id_pelicula", referencedColumnName = "id_pelicula"),

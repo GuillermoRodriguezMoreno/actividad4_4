@@ -3,10 +3,7 @@ package org.iesvdm.videoclub.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -18,16 +15,19 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
+    @EqualsAndHashCode.Include
     private long id;
     private String nombre;
 
     @ManyToMany(
-            mappedBy = "categorias")
+            mappedBy = "categorias",
+            fetch = FetchType.EAGER)
     @JsonIgnore
     Set<Pelicula> peliculas = new HashSet<>();
 
