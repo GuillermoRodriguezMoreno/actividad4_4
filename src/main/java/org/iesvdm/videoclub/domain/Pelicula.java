@@ -58,7 +58,7 @@ public class Pelicula {
     @Column(name = "caracteristicas_especiales")
     private String caracteristicasEspeciales;
 
-    @ManyToMany()
+    @ManyToMany(    )
     @JoinTable(
             name = "pelicula_categoria",
             joinColumns = @JoinColumn(name = "id_pelicula", referencedColumnName = "id_pelicula"),
