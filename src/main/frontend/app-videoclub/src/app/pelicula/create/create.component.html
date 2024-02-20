@@ -47,6 +47,19 @@
             </div>
         </div>
 
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="duracion">Duracion:</label>
+                <input
+                    formControlName="duracion"
+                    id="duracion"
+                    type="text"
+                    class="form-control">
+                <div *ngIf="f.duracion.touched && f.duracion.invalid" class="alert alert-danger">
+                    <div *ngIf="f.duracion.errors.required">*Duración es requerido.</div>
+                </div>
+            </div>
+        </div>
 
         <div class="form-group row">
             <div class="col-md-6 ">
@@ -56,7 +69,7 @@
                     id="idiomaOriginal"
                     type="text"
                     class="form-control">
-                <div *ngIf="f.idiomaOriginal.touched && f.idiomaOrg.invalid" class="alert alert-danger">
+                <div *ngIf="f.idiomaOriginal.touched && f.idiomaOriginal.invalid" class="alert alert-danger">
                     <div *ngIf="f.idiomaOriginal.errors.required">*Idioma original es requerido.</div>
                 </div>
             </div>
@@ -76,22 +89,6 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="form-group row">
-            <div class="col-md-6 ">
-                <label for="duracion">Duracion:</label>
-                <input
-                    formControlName="duracion"
-                    id="duracion"
-                    type="text"
-                    class="form-control">
-                <div *ngIf="f.duracion.touched && f.duracion.invalid" class="alert alert-danger">
-                    <div *ngIf="f.duracion.errors.required">*Duración es requerido.</div>
-                </div>
-            </div>
-        </div>
-
         
         <div class="form-group row">
             <div class="col-md-6 ">
