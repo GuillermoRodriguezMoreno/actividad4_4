@@ -23,7 +23,7 @@ public class CategoriaController {
     }
 
     @GetMapping({"", "/"})
-    public List<Categoria> all() {
+    public List<Categoria   > all() {
         log.info("Accediendo a todas las categorias.");
         return this.categoriaService.all();
     }

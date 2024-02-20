@@ -16,7 +16,14 @@ import { NgIf } from '@angular/common';
 export class CreateComponent implements OnInit {
 
   form: FormGroup =  new FormGroup({
-    nombre:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ])
+    nombre:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
+    descripcion:  new FormControl('', [ Validators.required]),
+    anio:  new FormControl('', [ Validators.required]),
+    duracion:  new FormControl('', [ Validators.required]),
+    idiomaOriginal:  new FormControl('', [ Validators.required]),
+    idioma:  new FormControl('', [ Validators.required]),
+    categoria :  new FormControl('', [ Validators.required]),
+    ultimaActualizacion:  new FormControl('', [ Validators.required]),
   });
 
   constructor(

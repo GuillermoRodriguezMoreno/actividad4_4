@@ -27,7 +27,7 @@
           <label for="descripcion">Descripcion:</label>
           <input
             formControlName="descripcion"
-            id="descrocion"
+            id="descripcion"
             type="text"
             class="form-control">
         </div>
@@ -50,14 +50,14 @@
 
         <div class="form-group row">
             <div class="col-md-6 ">
-                <label for="idiomaOrg">Idioma original:</label>
+                <label for="idiomaOriginal">Idioma original:</label>
                 <input
-                    formControlName="idiomaOrg"
-                    id="idiomaOrg"
+                    formControlName="idiomaOriginal"
+                    id="idiomaOriginal"
                     type="text"
                     class="form-control">
-                <div *ngIf="f.idiomaOrg.touched && f.idiomaOrg.invalid" class="alert alert-danger">
-                    <div *ngIf="f.idiomaOrg.errors.required">*Idioma original es requerido.</div>
+                <div *ngIf="f.idiomaOriginal.touched && f.idiomaOrg.invalid" class="alert alert-danger">
+                    <div *ngIf="f.idiomaOriginal.errors.required">*Idioma original es requerido.</div>
                 </div>
             </div>
         </div>

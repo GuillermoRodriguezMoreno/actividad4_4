@@ -3,6 +3,7 @@ import { peliculaService } from '../pelicula.service';
 import { Pelicula } from '../pelicula';
 import { Router, RouterModule } from '@angular/router';
 import { NgFor } from '@angular/common';
+import { Categoria } from 'src/app/categoria/categoria';
 
 @Component({
   selector: 'app-index',
@@ -22,6 +23,10 @@ export class IndexComponent implements OnInit {
       this.peliculas= data;
       console.log(this.peliculas);
     })
+  }
+
+  categoriasToString(pelicula: Pelicula): string {
+    return pelicula.categorias.map(categoria => categoria.nombre).join(', ');
   }
 
   deletePelicula(id: any){

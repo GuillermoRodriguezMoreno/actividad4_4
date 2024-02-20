@@ -4,7 +4,7 @@
         <h4>Lista de Películas</h4>
       </div>
       <div class="col-md-6">
-        <a routerLink="/pelicula/create" class="btn btn-success float-md-end" style="margin-left: 2px; margin-top: 2px;">Crear Nueva Categoría</a>
+        <a routerLink="/pelicula/create" class="btn btn-success float-md-end" style="margin-left: 2px; margin-top: 2px;">Crear Nueva Película</a>
       </div>
     </div>
     <div class="row top5 text-center">
@@ -15,24 +15,24 @@
       <div class="col-md-1 border-bottom"><h5>Idioma original</h5></div>
       <div class="col-md-1 border-bottom"><h5>Idioma</h5></div>
       <div class="col-md-1 border-bottom"><h5>Duración</h5></div>
-      <div class="col-md-1 border-bottom"><h5>Categorías</h5></div>
+      <div class="col-md-2 border-bottom"><h5>Categorías</h5></div>
       <div class="col-md-1 border-bottom"><h5>Última actualización</h5></div>
-      <div class="col-md-2 border-bottom d-md-flex justify-content-md-center"><h5>Acción</h5></div>
+      <div class="col-md-1 border-bottom d-md-flex justify-content-md-center"><h5>Acción</h5></div>
     </div>
     <div *ngFor="let pelicula of peliculas" class="row top5 align-items-center">
-      <div class="col-md-3">{{ pelicula.id }}</div>
-      <div class="col-md-3">{{ pelicula.titulo }}</div>
-      <div class="col-md-3">{{ pelicula.descripcion }}</div>
-      <div class="col-md-3">{{ pelicula.anio }}</div>
-      <div class="col-md-3">{{ pelicula.idioma_original.nombre }}</div>
-      <div class="col-md-3">{{ pelicula.idioma.nombre }}</div>
-      <div class="col-md-3">{{ pelicula.duracion }}</div>
-      <div class="col-md-3">{{ pelicula.categorias }}</div>
-      <div class="col-md-3">{{ pelicula.ultimaActualizacion }}</div>
+      <div class="col-md-1">{{ pelicula.id }}</div>
+      <div class="col-md-1">{{ pelicula.titulo }}</div>
+      <div class="col-md-2">{{ pelicula.descripcion }}</div>
+      <div class="col-md-1">{{ pelicula.anio }}</div>
+      <div class="col-md-1">{{ pelicula.idiomaOriginal.nombre }}</div>
+      <div class="col-md-1">{{ pelicula.idioma.nombre }}</div>
+      <div class="col-md-1">{{ pelicula.duracion }}</div>
+      <div class="col-md-2">{{ categoriasToString(pelicula) }}</div>
+      <div class="col-md-1">{{ pelicula.ultimaActualizacion }}</div>
   
-      <div class="col-md-3 d-md-flex justify-content-md-center">
-        <button type="button" [routerLink]="['/pelicula/', 'edit', pelicula.id]" class="btn btn-secondary" style="margin-left: 2px; margin-top: 2px;">Editar</button>
-        <button type="button" (click)="deletePelicula(pelicula.id)" class="btn btn-danger" style="margin-left: 2px; margin-top: 2px;">Eliminar</button>
+      <div class="col-md-1 d-flex justify-content-center flex-wrap gap-1">
+        <button type="button" [routerLink]="['/pelicula/', 'edit', pelicula.id]" class="btn btn-secondary">Editar</button>
+        <button type="button" (click)="deletePelicula(pelicula.id)" class="btn btn-danger">Eliminar</button>
   
       </div>
     </div>

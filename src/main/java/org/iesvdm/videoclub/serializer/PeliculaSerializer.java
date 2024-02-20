@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import org.iesvdm.videoclub.domain.Pelicula;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class PeliculaSerializer  extends StdSerializer<Pelicula> {
 
@@ -23,12 +25,19 @@ public class PeliculaSerializer  extends StdSerializer<Pelicula> {
                           SerializerProvider provider)
             throws IOException, JsonProcessingException {
 
+        //PATRON FECHAS
+        String pattern = "dd-MM-yyyy";
+        String patternAño = "yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        SimpleDateFormat simpleDateFormatAño = new SimpleDateFormat(patternAño);
+
         jgen.writeStartObject(); // equivale en JSON a abrir {
         jgen.writeNumberField("id", pelicula.getIdPelicula()); // "id": 1
         jgen.writeStringField("titulo", pelicula.getTitulo()); // "titulo": "peli"
         jgen.writeStringField("descripcion", pelicula.getDescripcion()); // "descripcion": "descripcion"
-        jgen.writeStringField("anio", pelicula.getAnyoLanzamiento().toString()); // "anio": "2021"
-        jgen.writeFieldName("idioma_original"); // "idioma_original":
+        jgen.writeStringField("anio", simpleDateFormatAño.format(pelicula.getAnyoLanzamiento())); // "anio": "2021"
+
+        jgen.writeFieldName("idiomaOriginal"); // "idioma_original":
 
         if (pelicula.getIdiomaOriginal() != null) {
             jgen.writeStartObject(); // equivale en JSON a abrir {
@@ -48,7 +57,7 @@ public class PeliculaSerializer  extends StdSerializer<Pelicula> {
         } else {
             jgen.writeRawValue("null"); //como no existe el idioma a null
         }
-
+        jgen.writeNumberField("duracion", pelicula.getDuracion()); // "duracion": 120
         jgen.writeFieldName("categorias");
         if(pelicula.getCategorias() != null) {
             jgen.writeStartArray();
@@ -57,7 +66,7 @@ public class PeliculaSerializer  extends StdSerializer<Pelicula> {
                     jgen.writeStartObject();
                     jgen.writeNumberField("id", categoria.getId());
                     jgen.writeStringField("nombre", categoria.getNombre());
-                    jgen.writeFieldName("ultima_actualizacion");
+                    jgen.writeStringField("ultimaActualizacion", simpleDateFormat.format(categoria.getUltimaActualizacion()));
                     jgen.writeEndObject();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -68,7 +77,7 @@ public class PeliculaSerializer  extends StdSerializer<Pelicula> {
             jgen.writeRawValue("null");
         }
 
-        jgen.writeStringField("ultima_actualizacion", pelicula.getUltimaActualizacion().toString()); // "ultima_actualizacion": "2021-05-05-12:00:00"
+        jgen.writeStringField("ultimaActualizacion", simpleDateFormat.format(pelicula.getUltimaActualizacion())); // "ultima_actualizacion": "2021-05-05-12:00:00"
 
         jgen.writeEndObject(); //equivale en JSON a cerrar }
 
