@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.iesvdm.videoclub.serializer.PeliculaSerializer;
 import org.hibernate.annotations.OnDelete;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,6 +25,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@JsonSerialize(using = PeliculaSerializer.class)
 public class Pelicula {
 
     @Id

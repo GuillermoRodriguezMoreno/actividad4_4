@@ -21,11 +21,11 @@
     </div>
     <div *ngFor="let pelicula of peliculas" class="row top5 align-items-center">
       <div class="col-md-3">{{ pelicula.id }}</div>
-      <div class="col-md-3">{{ pelicula.nombre }}</div>
+      <div class="col-md-3">{{ pelicula.titulo }}</div>
       <div class="col-md-3">{{ pelicula.descripcion }}</div>
       <div class="col-md-3">{{ pelicula.anio }}</div>
-      <div class="col-md-3">{{ pelicula.idioma_original }}</div>
-      <div class="col-md-3">{{ pelicula.idioma }}</div>
+      <div class="col-md-3">{{ pelicula.idioma_original.nombre }}</div>
+      <div class="col-md-3">{{ pelicula.idioma.nombre }}</div>
       <div class="col-md-3">{{ pelicula.duracion }}</div>
       <div class="col-md-3">{{ pelicula.categorias }}</div>
       <div class="col-md-3">{{ pelicula.ultimaActualizacion }}</div>
